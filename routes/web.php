@@ -2,9 +2,12 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserController;
 
-Route::get('/profile/{nama}/{npm}/{kelas}', [ProfileController::class, 'profile']);
-Route::post('/upload-foto', [ProfileController::class, 'uploadFoto'])->name('upload-foto');
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+Route::post('/user', [UserController::class, 'store'])->name('user.store');
 /*
 |--------------------------------------------------------------------------
 | Web Routes
