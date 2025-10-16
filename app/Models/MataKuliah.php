@@ -2,20 +2,24 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 class MataKuliah extends Model
 {
-    use HasFactory;
-
+    // Tentukan nama tabel yang sesuai di database
     protected $table = 'mata_kuliah';
-    protected $guarded = ['id'];
 
-    public $incrementing = false;
+    // Pastikan primary key adalah UUID string (non-incrementing)
     protected $keyType = 'string';
+    public $incrementing = false;
 
+    protected $fillable = [
+        'nama_mk',
+        'sks',
+    ];
+
+    // Generate UUID saat creating
     protected static function boot()
     {
         parent::boot();
@@ -25,10 +29,5 @@ class MataKuliah extends Model
                 $model->{$model->getKeyName()} = (string) Str::uuid();
             }
         });
-    }
-
-    public function getAllMK()
-    {
-        return $this->all();
     }
 }

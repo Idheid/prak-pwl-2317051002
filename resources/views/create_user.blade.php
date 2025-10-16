@@ -106,11 +106,12 @@
                        placeholder="Masukkan nama lengkap" required>
             </div>
 
+
             <div class="mb-3">
-                <label for="npm" class="form-label">NPM</label>
-                <input type="text" id="npm" name="npm" 
-                       class="form-control" 
-                       placeholder="Masukkan NPM" required>
+                <label for="nim" class="form-label">NIM</label>
+                <input type="text" id="nim" name="nim"
+                       class="form-control"
+                       placeholder="Masukkan NIM" value="{{ old('nim') }}" required>
             </div>
 
             <div class="mb-3">
