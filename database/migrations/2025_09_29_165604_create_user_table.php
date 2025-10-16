@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('user', function (Blueprint $table) {
-            $table->id();
+            // Ganti id() menjadi uuid()
+            $table->uuid('id')->primary();
             $table->string('nama');
             $table->string('nim')->unique();
-            $table->foreignId('kelas_id')->constrained();
+
+            // Foreign UUID ke tabel kelas
+            $table->foreignUuid('kelas_id')->constrained('kelas')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

@@ -21,7 +21,7 @@ class UserController extends Controller
     {
         $this->userModel->create([
             'nama' => $request->input('nama'),
-            'nim' => $request->input('npm'),
+            'nim' => $request->input('nim'),
             'kelas_id' => $request->input('kelas_id'),
         ]);
 
